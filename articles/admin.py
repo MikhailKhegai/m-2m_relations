@@ -12,11 +12,11 @@ class RelationshipInlineFormset(BaseInlineFormSet):
             raise ValidationError('Тут всегда ошибка')
         return super().clean()
 
-class Article_Scope_Inline(admin.TabularInline):
+class RelationshipScopeInline(admin.TabularInline):
     model = Scope
     extra = 3
 
 
 @admin.register(Article)
-class ArticleAdmin(admin.ModelAdmin):
-    inlines = [Article_Scope_Inline,]
+class ArticleAdminObject(admin.ModelAdmin):
+    inlines = [RelationshipScopeInline,]
